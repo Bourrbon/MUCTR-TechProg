@@ -19,59 +19,75 @@ namespace Lab2
             InitializeComponent();
         }
 
+        public static double todos(double t)
+        {
+            const double Tc = 430.8;
+            const double Pc = 77.8;
+            const double M = 64.063;
+
+            double xi = (Math.Pow(Tc, 1.0 / 6.0)) / (Math.Pow(M, 1.0 / 2.0) * Math.Pow(Pc, 2.0 / 3.0));
+
+            double Tr = (t + 273.15) / Tc;
+
+            double etaxi = 4.610 * Math.Pow(Tr, 0.618) - 2.04 * Math.Exp(-0.449 * Tr) + 1.94 * Math.Exp(-4.058 * Tr) + 0.1;
+
+            return etaxi / xi;
+        }
+
         double t = 0.0;
         double t_start = 40.0;
         double t_step = 10.0;
         double t_max = 140.0;
+        double t_prov = 40;
+        double eta_prov = 135;
 
 
         double ref_n = 135.0;
         double res = 0.0;
+        double epsilon = 0.0001;
         string err_msg = "Ошибка ввода...";
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //string inp = textBox1.Text;
-            
-
-
-            res = Program.todos(40.0);
-            textBox2.Text = Convert.ToString(Math.Round(res, 0));
-            double rel = Math.Abs(res - ref_n) / ref_n;
-            textBox3.Text = Convert.ToString(Math.Round(rel * 100, 2)) + "%";
-
-            for (t = t_start; t <= t_max; t += t_step)
+            //Для пользовательского ввода с клавиатуры
+            bool CorrectInput = false;
+            try
             {
-                res = Program.todos(t);
-                string ts = "t = " + Convert.ToString(t) + " ℃";
-                string etas = "η = " + Convert.ToString(Math.Round(res, 0)) + "  мкП";
-                listBox1.Items.Add(string.Format("{0, -16}{1, 16}", ts, etas));
+                t_start = Convert.ToDouble(tStartBox.Text);
+                t_max = Convert.ToDouble(tEndBox.Text);
+                t_step = Convert.ToDouble(tDeltaBox.Text);
+
+                CorrectInput = true;
             }
-            listBox1.Items.Add("");
 
-            // Для пользовательского ввода с клавиатуры
+            catch
+            {
+                tStartBox.Clear();
+                tEndBox.Clear();
+                tDeltaBox.Clear();
+                ValueBox.Clear();
+                ValueBox.Text = err_msg;
+            }
 
-            //if (Double.TryParse(inp, out t))
-            //{
-            //    res = Program.todos(40.0);
-            //    textBox2.Text = Convert.ToString(Math.Round(res, 0));
-            //    double rel = Math.Abs(res - ref_n) / ref_n;
-            //    textBox3.Text = Convert.ToString(Math.Round(rel * 100, 2)) + "%";
+            if (CorrectInput)
+            {
+                ValueBox.Clear();
+                ValueBox.AppendText($"{"t(°C)", -10} | {"η (мкП)", +10}" + Environment.NewLine);
+                ValueBox.AppendText("----------------------------------------------" + Environment.NewLine);
+                for (t = t_start; t <= t_max; t += t_step)
+                {
+                    if (Math.Abs(t - t_prov) < epsilon)
+                    {
+                        double res = (Math.Abs(todos(t) - eta_prov) / eta_prov) * 100;
+                        ValueBox.AppendText($"{t, -10} {Math.Round(todos(t), 2), 10}" + Environment.NewLine);
+                        ValueBox.AppendText("\tОтносительная погрешность: " + Math.Round(res, 2) + "%" + Environment.NewLine);
+                        continue;
+                    }
 
-            //    for (t = t_start; t <= t_max; t += t_step)
-            //    {
-            //        res = Program.todos(t);
-            //        string ts = "t = " + Convert.ToString(t) + " ℃";
-            //        string etas = "η = " + Convert.ToString(Math.Round(res, 0)) + "  мкП";
-            //        listBox1.Items.Add(string.Format("{0, -16}{1, 16}", ts, etas));
-            //    }
+                    ValueBox.AppendText($"{t,-10} {Math.Round(todos(t), 2),10}" + Environment.NewLine);
+                }
+            }
 
-            //}
-            //else
-            //{
-            //    textBox2.Text = err_msg;
-            //    textBox3.Text = err_msg;
-            //}
         }
 
         private void status_strip_text(object sender, EventArgs e)
@@ -87,9 +103,9 @@ namespace Lab2
             toolLabel1.Text += Assembly.GetExecutingAssembly().GetName().Version.ToString();
             toolLabel2.Text += Convert.ToString(dt);
 
-            textBox1.Text = Convert.ToString(t_start);
-            textBox4.Text = Convert.ToString(t_max);
-            textBox5.Text = Convert.ToString(t_step);
+            tStartBox.Text = Convert.ToString(t_start);
+            tEndBox.Text = Convert.ToString(t_max);
+            tDeltaBox.Text = Convert.ToString(t_step);
         }
 
     }

@@ -28,68 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.CalculateButton = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tStartBox = new System.Windows.Forms.TextBox();
+            this.tEndBox = new System.Windows.Forms.TextBox();
+            this.tDeltaBox = new System.Windows.Forms.TextBox();
+            this.ValueBox = new System.Windows.Forms.TextBox();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // CalculateButton
             // 
-            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(81, 159);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(255, 40);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Рассчитать вязкость η";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(393, 319);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(110, 22);
-            this.textBox3.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(77, 246);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(299, 23);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Абсол. значение (для t = 40 ℃):";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(77, 316);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(229, 23);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Относительная ошибка:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(393, 249);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(110, 22);
-            this.textBox2.TabIndex = 7;
+            this.CalculateButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CalculateButton.Location = new System.Drawing.Point(81, 159);
+            this.CalculateButton.Name = "CalculateButton";
+            this.CalculateButton.Size = new System.Drawing.Size(255, 40);
+            this.CalculateButton.TabIndex = 0;
+            this.CalculateButton.Text = "Рассчитать вязкость η";
+            this.CalculateButton.UseVisualStyleBackColor = true;
+            this.CalculateButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // statusStrip1
             // 
@@ -97,9 +59,9 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolLabel1,
             this.toolLabel2});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 424);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 452);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(991, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(1068, 26);
             this.statusStrip1.TabIndex = 8;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -114,16 +76,6 @@
             this.toolLabel2.Name = "toolLabel2";
             this.toolLabel2.Size = new System.Drawing.Size(130, 20);
             this.toolLabel2.Text = "Дата изменения: ";
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(610, 24);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBox1.Size = new System.Drawing.Size(345, 324);
-            this.listBox1.TabIndex = 9;
             // 
             // label1
             // 
@@ -155,49 +107,52 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Шаг Δt";
             // 
-            // textBox1
+            // tStartBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(208, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 13;
+            this.tStartBox.Location = new System.Drawing.Point(208, 24);
+            this.tStartBox.Name = "tStartBox";
+            this.tStartBox.Size = new System.Drawing.Size(100, 22);
+            this.tStartBox.TabIndex = 13;
             // 
-            // textBox4
+            // tEndBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(208, 73);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 14;
+            this.tEndBox.Location = new System.Drawing.Point(208, 73);
+            this.tEndBox.Name = "tEndBox";
+            this.tEndBox.Size = new System.Drawing.Size(100, 22);
+            this.tEndBox.TabIndex = 14;
             // 
-            // textBox5
+            // tDeltaBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(208, 116);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(100, 22);
-            this.textBox5.TabIndex = 15;
+            this.tDeltaBox.Location = new System.Drawing.Point(208, 116);
+            this.tDeltaBox.Name = "tDeltaBox";
+            this.tDeltaBox.Size = new System.Drawing.Size(100, 22);
+            this.tDeltaBox.TabIndex = 15;
+            // 
+            // ValueBox
+            // 
+            this.ValueBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ValueBox.Location = new System.Drawing.Point(461, 21);
+            this.ValueBox.Multiline = true;
+            this.ValueBox.Name = "ValueBox";
+            this.ValueBox.Size = new System.Drawing.Size(595, 414);
+            this.ValueBox.TabIndex = 16;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(991, 450);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(1068, 478);
+            this.Controls.Add(this.ValueBox);
+            this.Controls.Add(this.tDeltaBox);
+            this.Controls.Add(this.tEndBox);
+            this.Controls.Add(this.tStartBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.CalculateButton);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lab2";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.statusStrip1.ResumeLayout(false);
@@ -209,21 +164,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button CalculateButton;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolLabel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.TextBox tStartBox;
+        private System.Windows.Forms.TextBox tEndBox;
+        private System.Windows.Forms.TextBox tDeltaBox;
+        private System.Windows.Forms.TextBox ValueBox;
     }
 }
 
