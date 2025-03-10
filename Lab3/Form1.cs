@@ -49,7 +49,7 @@ namespace Lab3
         double x_end = 0.0;
         int n = 1; // Кол-во разбиений интервала
 
-
+  
         private void button1_Click(object sender, EventArgs e)
         {
             bool inputSuccess = false;
