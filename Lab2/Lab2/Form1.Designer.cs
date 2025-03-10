@@ -30,8 +30,8 @@
         {
             this.CalculateButton = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.VersionLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.DateLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.ErrorLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -59,8 +59,8 @@
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolLabel1,
-            this.toolLabel2,
+            this.VersionLabel,
+            this.DateLabel,
             this.ErrorLabel});
             this.statusStrip1.Location = new System.Drawing.Point(0, 366);
             this.statusStrip1.Name = "statusStrip1";
@@ -69,17 +69,17 @@
             this.statusStrip1.TabIndex = 8;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolLabel1
+            // VersionLabel
             // 
-            this.toolLabel1.Name = "toolLabel1";
-            this.toolLabel1.Size = new System.Drawing.Size(52, 17);
-            this.toolLabel1.Text = "Версия: ";
+            this.VersionLabel.Name = "VersionLabel";
+            this.VersionLabel.Size = new System.Drawing.Size(52, 17);
+            this.VersionLabel.Text = "Версия: ";
             // 
-            // toolLabel2
+            // DateLabel
             // 
-            this.toolLabel2.Name = "toolLabel2";
-            this.toolLabel2.Size = new System.Drawing.Size(101, 17);
-            this.toolLabel2.Text = "Дата изменения: ";
+            this.DateLabel.Name = "DateLabel";
+            this.DateLabel.Size = new System.Drawing.Size(101, 17);
+            this.DateLabel.Text = "Дата изменения: ";
             // 
             // ErrorLabel
             // 
@@ -151,6 +151,7 @@
             this.ValueBox.Margin = new System.Windows.Forms.Padding(2);
             this.ValueBox.Multiline = true;
             this.ValueBox.Name = "ValueBox";
+            this.ValueBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ValueBox.Size = new System.Drawing.Size(458, 337);
             this.ValueBox.TabIndex = 16;
             // 
@@ -184,8 +185,8 @@
 
         private System.Windows.Forms.Button CalculateButton;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolLabel1;
-        private System.Windows.Forms.ToolStripStatusLabel toolLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel VersionLabel;
+        private System.Windows.Forms.ToolStripStatusLabel DateLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;

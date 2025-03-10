@@ -12,32 +12,7 @@ namespace Lab3
 {
     public partial class Lab3 : Form
     {
-        double F1(double x)
-        {
-            return Math.Log(x, 3);
-        }
 
-        double F2 (double x)
-        {
-            return Math.Sinh(-Math.Pow(4.0, x));
-        }
-
-        double F3(double x)
-        {
-            return Math.Cos(Math.Abs(-x)/(1.0 + 1.0/Math.Pow(x, 3)));
-        }
-
-        double F4(double x)
-        {
-            double res = 0.0;
-            int j_max = 1000000;
-
-            for (int j = 1; j <= j_max; j++)
-            {
-                res += 1.0 / (x + Math.Sqrt(j));
-            }
-            return res;
-        }
 
         public Lab3()
         {
@@ -132,6 +107,47 @@ namespace Lab3
                 //}
                 this.TopMost = true;
             }
+        }
+    }
+
+    public partial class Function
+    {
+        // Конструктор
+        Function()
+        {
+
+        }
+
+        double F1(double x)
+        {
+            return Math.Log(x, 3);
+        }
+
+        double F2(double x)
+        {
+            return Math.Sinh(-Math.Pow(4.0, x));
+        }
+
+        double F3(double x)
+        {
+            return Math.Cos(Math.Abs(-x) / (1.0 + 1.0 / Math.Pow(x, 3)));
+        }
+
+        double F4(double x)
+        {
+            double res = 0.0;
+            int j_max = 1000000;
+
+            for (int j = 1; j <= j_max; j++)
+            {
+                res += 1.0 / (x + Math.Sqrt(j));
+            }
+            return res;
+        }
+
+        double CalculateWholeF(double x)
+        {
+                return F1(x) + F2(x) + F3(x) + F4(x);
         }
     }
 }

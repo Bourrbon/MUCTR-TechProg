@@ -75,21 +75,28 @@ namespace Lab2
                 {
                     try
                     {
+                        if ( Double.IsNaN(Function.Todos(t)) || Double.IsInfinity(Function.Todos(t)) )
+                        {
+                            throw new Exception();
+                        }
+
                         // Если достигли опорной температуры, проверяем погрешность
-                        if (Math.Abs(t - t_prov) < epsilon)
+                        if ( Math.Abs(t - t_prov) < epsilon )
                         {
                             double res = (Math.Abs(Function.Todos(t) - eta_prov) / eta_prov) * 100;
-                            ValueBox.AppendText($"{t,-10} {Math.Round(Function.Todos(t), 2),10}" + Environment.NewLine);
+                            ValueBox.AppendText($"{t, -10} {Math.Round(Function.Todos(t), 2), +10}" + Environment.NewLine);
                             ValueBox.AppendText("\tОтносительная погрешность: " + Math.Round(res, 2) + "%" + Environment.NewLine);
                             continue;
                         }
 
-                        ValueBox.AppendText($"{t,-10} {Math.Round(Function.Todos(t), 2),10}" + Environment.NewLine);
+                        ValueBox.AppendText($"{t, -10} {Math.Round(Function.Todos(t), 2), +10}" + Environment.NewLine);
                     }
 
                     catch
                     {
+                        CalculationErrorCatched = true;
                         ErrorLabel.Text = "Произошла ошибка вычисления";
+                        ValueBox.AppendText($"{t, -10} {"-", +10}" + Environment.NewLine);
                         continue;
                     }
                 }
@@ -109,8 +116,8 @@ namespace Lab2
             DateTime dt = File.GetLastWriteTime(path);
 
             // Взять версию программы
-            toolLabel1.Text += Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            toolLabel2.Text += Convert.ToString(dt);
+            VersionLabel.Text += Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            DateLabel.Text += Convert.ToString(dt);
 
             tStartBox.Text = Convert.ToString(t_start);
             tMaxBox.Text = Convert.ToString(t_max);
@@ -126,11 +133,27 @@ namespace Lab2
             const double Pc = 77.8;
             const double M = 64.063;
 
+
             double xi = (Math.Pow(Tc, 1.0 / 6.0)) / (Math.Pow(M, 1.0 / 2.0) * Math.Pow(Pc, 2.0 / 3.0));
+
+            if ( Double.IsNaN(xi)  || Double.IsInfinity(xi) )
+            {
+                throw new Exception();
+            }
 
             double Tr = (t + 273.15) / Tc;
 
+            if ( Double.IsNaN(Tr) || Double.IsInfinity(Tr) )
+            {
+                throw new Exception();
+            }
+
             double etaxi = 4.610 * Math.Pow(Tr, 0.618) - 2.04 * Math.Exp(-0.449 * Tr) + 1.94 * Math.Exp(-4.058 * Tr) + 0.1;
+
+            if ( Double.IsNaN(etaxi) || Double.IsInfinity(etaxi) )
+            {
+                throw new Exception();
+            }
 
             return etaxi / xi;
         }
