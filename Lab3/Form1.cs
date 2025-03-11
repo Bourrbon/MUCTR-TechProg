@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,111 +14,50 @@ namespace Lab3
 {
     public partial class Lab3 : Form
     {
-        double F1(double x)
-        {
-            return Math.Log(x, 3);
-        }
-
-        double F2 (double x)
-        {
-            return Math.Sinh(-Math.Pow(4.0, x));
-        }
-
-        double F3(double x)
-        {
-            return Math.Cos(Math.Abs(-x)/(1.0 + 1.0/Math.Pow(x, 3)));
-        }
-
-        double F4(double x)
-        {
-            double res = 0.0;
-            int j_max = 1000000;
-
-            for (int j = 1; j <= j_max; j++)
-            {
-                res += 1.0 / (x + Math.Sqrt(j));
-            }
-            return res;
-        }
-
         public Lab3()
         {
             InitializeComponent();
         }
 
-        string errmsg = "Ошибка ввода!";
-        double x_start = 0.0;
-        double x_end = 0.0;
-        int n = 1; // Кол-во разбиений интервала
-
-  
-        private void button1_Click(object sender, EventArgs e)
+        private void PerformCalculation(double start, double stop, int n)
         {
-            bool inputSuccess = false;
             bool cacluationErrorCatched = false;
 
-            try 
+            double x_cur = start;
+            double step = (stop - start) / n;
+
+            string[] values = new string[n];
+
+            OutputBox.Text = $"{"x", -10} {"F(x)", +10} {Environment.NewLine}  ------------------------------------------------------------ {Environment.NewLine}";
+            do
             {
-                if (!int.TryParse(xNBox.Text, out n) | (Convert.ToInt32(n) <= 0) )
+                try
                 {
-                    throw new ApplicationException("Negative array size");
+                    double t = Function.TotalF(x_cur);
+                    if (double.IsNaN(t) | double.IsInfinity(t))
+                    {
+                        values.Append("-");
+                        OutputBox.AppendText($"{Math.Round(x_cur, 3), -10} {"-", +10} {Environment.NewLine}");
+                        throw new ApplicationException("NaN or inf occured");
+                    }
+                    values.Append(Convert.ToString(t));
+                    OutputBox.AppendText($"{Math.Round(x_cur, 3), -10} {Math.Round(t, 3), +10} {Environment.NewLine}");
                 }
-
-                x_start = Convert.ToDouble(xStartBox.Text);
-                x_end = Convert.ToDouble(xEndBox.Text);
-                n = Convert.ToInt32(xNBox.Text);
-                xNBox.Text = Convert.ToString(n);
-
-                inputSuccess = true;
-                ErrorLabel.Text = "OK";
-            } 
-            catch
-            {  
-                ErrorLabel.Text = errmsg;
-                xStartBox.Clear();
-                xEndBox.Clear();
-                xNBox.Clear();
-                //throw;
-            }
-
-            if (inputSuccess == true)
-            {
-                //ErrorLabel.Text = "Вычисление...";
-
-                double x_cur = x_start;
-                double step = Math.Abs(x_end - x_start) / Convert.ToDouble(n);
-                string[] values = new string[n];
-
-                resultBox.Text = $"{"x", -10} {"F(x)", 10} {Environment.NewLine}  ------------------------------------------------------------ {Environment.NewLine}";
-                do
+                catch
                 {
-                    try
-                    {
-                        double t = F1(x_cur) + F2(x_cur) + F3(x_cur) + F4(x_cur);
-                        if ( double.IsNaN(t) | double.IsInfinity(t) )
-                        {
-                            values.Append("-");
-                            resultBox.AppendText($"{Math.Round(x_cur, 3),-10} {"-", +10} {Environment.NewLine}");
-                            throw new ApplicationException("NaN or inf occured"); 
-                        }
-                        values.Append(Convert.ToString(t));
-                        resultBox.AppendText($"{Math.Round(x_cur, 3), -10} {Math.Round(t, 3), +10} {Environment.NewLine}");
-                    }
-                    catch
-                    {
-                        cacluationErrorCatched = true;
-                        x_cur += step;
-                        continue;
-                    }
-
+                    cacluationErrorCatched = true;
                     x_cur += step;
+                    continue;
                 }
-                while (x_cur <= x_end);
-                ErrorLabel.Text = "OK";
-            } 
-            
+
+                x_cur += step;
+            }
+            while (x_cur <= stop);
+            ErrorLabel.Text = "OK";
+
             if (cacluationErrorCatched == true)
             {
+                // Вызываем диалоговое окно с сообщением об ошибке
                 DialogResult result = MessageBox.Show(
                     "Интервал пройден с ошибкой",
                     "Ошибка вычисления",
@@ -132,6 +73,78 @@ namespace Lab3
                 //}
                 this.TopMost = true;
             }
+        }
+
+        private void CalculateButton_Click(object sender, EventArgs e)
+        {
+            bool inputSuccess = false;
+
+            double x_start = 0.0, x_end = 0.0;
+            int n = 1;
+            //ErrorLabel.Text = "Вычисление...";
+
+            try
+            {
+                x_start = Convert.ToDouble(xStartBox.Text);
+                x_end = Convert.ToDouble(xEndBox.Text);
+                n = Convert.ToInt32(xNBox.Text);
+                if (n <= 0)
+                {
+                    throw new Exception("Invalid interval size");
+                }
+
+                inputSuccess = true;
+                ErrorLabel.Text = "OK";
+            }
+
+            catch (Exception ex)
+            {
+                OutputBox.Clear();
+                OutputBox.Text = ex.Message;
+                ErrorLabel.Text = "ERROR";
+            }
+
+            if (inputSuccess)
+            {
+                PerformCalculation(x_start, x_end, n);
+            }
+
+        }
+     }
+
+    public partial class Function
+    {
+
+        static double F1(double x)
+        {
+            return Math.Log(x, 3);
+        }
+
+        static double F2(double x)
+        {
+            return Math.Sinh(-Math.Pow(4.0, x));
+        }
+
+        static double F3(double x)
+        {
+            return Math.Cos(Math.Abs(-x) / (1.0 + 1.0 / Math.Pow(x, 3)));
+        }
+
+        static double F4(double x)
+        {
+            double res = 0.0;
+            int j_max = 1000000;
+
+            for (int j = 1; j <= j_max; j++)
+            {
+                res += 1.0 / (x + Math.Sqrt(j));
+            }
+            return res;
+        }
+
+        public static double TotalF(double x)
+        {
+            return F1(x) + F2(x) + F3(x) + F4(x);
         }
     }
 }

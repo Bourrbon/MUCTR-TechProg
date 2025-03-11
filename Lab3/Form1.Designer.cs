@@ -34,8 +34,8 @@
             this.xStartBox = new System.Windows.Forms.TextBox();
             this.xEndBox = new System.Windows.Forms.TextBox();
             this.xNBox = new System.Windows.Forms.TextBox();
-            this.resultBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.OutputBox = new System.Windows.Forms.TextBox();
+            this.CalculateButton = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.ErrorLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
@@ -89,26 +89,26 @@
             this.xNBox.Size = new System.Drawing.Size(124, 30);
             this.xNBox.TabIndex = 5;
             // 
-            // resultBox
+            // OutputBox
             // 
-            this.resultBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.resultBox.Location = new System.Drawing.Point(603, 39);
-            this.resultBox.Multiline = true;
-            this.resultBox.Name = "resultBox";
-            this.resultBox.ReadOnly = true;
-            this.resultBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.resultBox.Size = new System.Drawing.Size(419, 587);
-            this.resultBox.TabIndex = 6;
+            this.OutputBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.OutputBox.Location = new System.Drawing.Point(603, 39);
+            this.OutputBox.Multiline = true;
+            this.OutputBox.Name = "OutputBox";
+            this.OutputBox.ReadOnly = true;
+            this.OutputBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.OutputBox.Size = new System.Drawing.Size(419, 587);
+            this.OutputBox.TabIndex = 6;
             // 
-            // button1
+            // CalculateButton
             // 
-            this.button1.Location = new System.Drawing.Point(102, 259);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(265, 38);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Рассчитать";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.CalculateButton.Location = new System.Drawing.Point(102, 259);
+            this.CalculateButton.Name = "CalculateButton";
+            this.CalculateButton.Size = new System.Drawing.Size(265, 38);
+            this.CalculateButton.TabIndex = 7;
+            this.CalculateButton.Text = "Рассчитать";
+            this.CalculateButton.UseVisualStyleBackColor = true;
+            this.CalculateButton.Click += new System.EventHandler(this.CalculateButton_Click);
             // 
             // statusStrip1
             // 
@@ -133,8 +133,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 693);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.resultBox);
+            this.Controls.Add(this.CalculateButton);
+            this.Controls.Add(this.OutputBox);
             this.Controls.Add(this.xNBox);
             this.Controls.Add(this.xEndBox);
             this.Controls.Add(this.xStartBox);
@@ -161,8 +161,8 @@
         private System.Windows.Forms.TextBox xStartBox;
         private System.Windows.Forms.TextBox xEndBox;
         private System.Windows.Forms.TextBox xNBox;
-        private System.Windows.Forms.TextBox resultBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox OutputBox;
+        private System.Windows.Forms.Button CalculateButton;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel ErrorLabel;
     }
