@@ -64,9 +64,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(27, 179);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(205, 23);
+            this.label3.Size = new System.Drawing.Size(202, 23);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Разбиений интервала";
+            this.label3.Text = "Шагов по интервалу:";
             // 
             // xStartBox
             // 
@@ -97,7 +97,7 @@
             this.OutputBox.Name = "OutputBox";
             this.OutputBox.ReadOnly = true;
             this.OutputBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.OutputBox.Size = new System.Drawing.Size(419, 587);
+            this.OutputBox.Size = new System.Drawing.Size(419, 611);
             this.OutputBox.TabIndex = 6;
             // 
             // CalculateButton
@@ -145,7 +145,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Lab3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Lab3";
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
