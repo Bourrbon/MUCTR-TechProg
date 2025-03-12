@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Lab4
 {
-    public partial class Form1 : Form
+    public partial class Lab4 : Form
     {
-        public Form1()
+        public Lab4()
         {
             InitializeComponent();
         }
@@ -27,7 +27,6 @@ namespace Lab4
 
         public void ReceiveInput()
         {
-            bool inputSuccess = false;
             try
             {
                 bool inp = false;
@@ -59,6 +58,7 @@ namespace Lab4
                 MessageBoxOptions.DefaultDesktopOnly
                                                     );
                 //this.TopMost = false;
+                this.tabControl1.TabStop = false;
                 
 
                 switch (result)
