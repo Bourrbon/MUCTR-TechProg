@@ -1,0 +1,10 @@
+D:\Unik\4 sem\TechProg\Kurs\bin\Debug\Kurs.exe.config
+D:\Unik\4 sem\TechProg\Kurs\bin\Debug\Kurs.exe
+D:\Unik\4 sem\TechProg\Kurs\bin\Debug\Kurs.pdb
+D:\Unik\4 sem\TechProg\Kurs\obj\Debug\Kurs.csproj.AssemblyReference.cache
+D:\Unik\4 sem\TechProg\Kurs\obj\Debug\Kurs.Form1.resources
+D:\Unik\4 sem\TechProg\Kurs\obj\Debug\Kurs.Properties.Resources.resources
+D:\Unik\4 sem\TechProg\Kurs\obj\Debug\Kurs.csproj.GenerateResource.cache
+D:\Unik\4 sem\TechProg\Kurs\obj\Debug\Kurs.csproj.CoreCompileInputs.cache
+D:\Unik\4 sem\TechProg\Kurs\obj\Debug\Kurs.exe
+D:\Unik\4 sem\TechProg\Kurs\obj\Debug\Kurs.pdb

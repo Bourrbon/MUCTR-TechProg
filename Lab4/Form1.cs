@@ -16,6 +16,7 @@ namespace Lab4
         {
             InitializeComponent();
         }
+<<<<<<< HEAD
 
         private void InputBox_KeyDown(object sender, KeyEventArgs e)
         {
@@ -92,5 +93,7 @@ namespace Lab4
             }
             return Math.Sin(temp);
         }
+=======
+>>>>>>> ae8c0afa503c8fc3c958918572ed6b15ae10214d
     }
 }

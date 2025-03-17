@@ -1,0 +1,16 @@
+﻿<Window x:Class="Kurs_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:Kurs_WPF"
+        Title="Main Window" Height="350" Width="525">
+    <Grid>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+        <DockPanel x:Name="UniversalDock">
+            <Button DockPanel.Dock="Top" Content="Open Popup" Click="OpenPopup_Click"/>
+            <Popup Name="popup" IsOpen="False" StaysOpen="False" Placement="Center">
+                <local:MyPopupDialog/>
+            </Popup>
+            <Frame DockPanel.Dock="Top" x:Name="ContentFrame" Content="Frame" Background="#FF7ADE8D" NavigationUIVisibility="Hidden"/>
+        </DockPanel>
+
+    </Grid>
+</Window>

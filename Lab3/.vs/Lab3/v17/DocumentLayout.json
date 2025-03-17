@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "D:\\Unik\\4 sem\\TechProg\\Lab3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{324E1E0D-F342-4E81-AD5D-3B0BF8345A7E}|Lab3.csproj|d:\\unik\\4 sem\\techprog\\lab3\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{324E1E0D-F342-4E81-AD5D-3B0BF8345A7E}|Lab3.csproj|D:\\Unik\\4 sem\\TechProg\\Lab3\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{324E1E0D-F342-4E81-AD5D-3B0BF8345A7E}|Lab3.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{324E1E0D-F342-4E81-AD5D-3B0BF8345A7E}|Lab3.csproj|D:\\Unik\\4 sem\\TechProg\\Lab3\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{324E1E0D-F342-4E81-AD5D-3B0BF8345A7E}|Lab3.csproj|d:\\unik\\4 sem\\techprog\\lab3\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{324E1E0D-F342-4E81-AD5D-3B0BF8345A7E}|Lab3.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "D:\\Unik\\4 sem\\TechProg\\Lab3\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAAADsAAAAAAAAA",
+              "ViewState": "AQIAAIEAAAAAAAAAAAAAAGsAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-25T06:02:32.981Z",
               "EditorCaption": ""
@@ -46,7 +46,8 @@
               "ToolTip": "D:\\Unik\\4 sem\\TechProg\\Lab3\\Form1.cs [Design]",
               "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T05:54:29.304Z"
+              "WhenOpened": "2025-02-25T05:54:29.304Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

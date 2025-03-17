@@ -8,3 +8,4 @@ D:\Unik\4 sem\TechProg\Lab3\obj\Debug\Lab3.csproj.CoreCompileInputs.cache
 D:\Unik\4 sem\TechProg\Lab3\obj\Debug\Lab3.exe
 D:\Unik\4 sem\TechProg\Lab3\obj\Debug\Lab3.pdb
 D:\Unik\4 sem\TechProg\Lab3\obj\Debug\Lab3.Lab3.resources
+D:\Unik\4 sem\TechProg\Lab3\obj\Debug\Lab3.csproj.SuggestedBindingRedirects.cache
