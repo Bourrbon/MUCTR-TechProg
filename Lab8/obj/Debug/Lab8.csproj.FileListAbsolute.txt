@@ -1,0 +1,10 @@
+D:\Unik\4 sem\TechProg\Lab8\bin\Debug\Lab8.exe.config
+D:\Unik\4 sem\TechProg\Lab8\bin\Debug\Lab8.exe
+D:\Unik\4 sem\TechProg\Lab8\bin\Debug\Lab8.pdb
+D:\Unik\4 sem\TechProg\Lab8\obj\Debug\Lab8.csproj.AssemblyReference.cache
+D:\Unik\4 sem\TechProg\Lab8\obj\Debug\Lab8.Form1.resources
+D:\Unik\4 sem\TechProg\Lab8\obj\Debug\Lab8.Properties.Resources.resources
+D:\Unik\4 sem\TechProg\Lab8\obj\Debug\Lab8.csproj.GenerateResource.cache
+D:\Unik\4 sem\TechProg\Lab8\obj\Debug\Lab8.csproj.CoreCompileInputs.cache
+D:\Unik\4 sem\TechProg\Lab8\obj\Debug\Lab8.exe
+D:\Unik\4 sem\TechProg\Lab8\obj\Debug\Lab8.pdb

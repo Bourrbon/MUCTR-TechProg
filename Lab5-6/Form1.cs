@@ -21,11 +21,11 @@ namespace Lab4
         {
             if (e.KeyCode == Keys.Enter)
             {
-                ReceiveInput();
+                ReceiveBoolInput();
             }
         }
 
-        public void ReceiveInput()
+        public void ReceiveBoolInput()
         {
             bool inputSuccess = false;
             try
@@ -65,7 +65,7 @@ namespace Lab4
                 {
                     case DialogResult.Abort: Environment.Exit(1); break;
                     case DialogResult.Ignore: break;
-                    case DialogResult.Retry: ReceiveInput(); break;
+                    case DialogResult.Retry: ReceiveBoolInput(); break;
                 }
             }
         }
